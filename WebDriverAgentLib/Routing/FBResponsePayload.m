@@ -11,6 +11,7 @@
 
 #import "FBElementCache.h"
 #import "FBResponseJSONPayload.h"
+#import "FBResponseTextPayload.h"
 #import "FBSession.h"
 #import "FBMathUtils.h"
 #import "FBConfiguration.h"
@@ -87,6 +88,17 @@ id<FBResponsePayload> FBResponseWithStatus(FBCommandStatus *status)
   }
   return [[FBResponseJSONPayload alloc] initWithDictionary:response.copy
                                             httpStatusCode:status.statusCode];
+}
+
+id<FBResponsePayload> FBResponseWithPlainAndStatus(NSString *plain, FBCommandStatus *status)
+{
+  return [[FBResponseTextPayload alloc] initWithPlain:plain
+                                            httpStatusCode:status.statusCode];
+}
+
+id<FBResponsePayload> FBResponseWithPlain(NSString *plain)
+{
+  return FBResponseWithPlainAndStatus(plain, FBCommandStatus.ok);
 }
 
 inline NSDictionary *FBDictionaryResponseWithElement(XCUIElement *element, BOOL compact)

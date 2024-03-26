@@ -19,8 +19,8 @@
 #import "XCTestConfiguration.h"
 #import "XCUIApplication+FBUIInterruptions.h"
 
-static NSUInteger const DefaultStartingPort = 8100;
-static NSUInteger const DefaultMjpegServerPort = 9100;
+static NSUInteger const DefaultStartingPort = 11100;
+static NSUInteger const DefaultMjpegServerPort = 11200;
 static NSUInteger const DefaultPortRange = 100;
 
 static char const *const controllerPrefBundlePath = "/System/Library/PrivateFrameworks/TextInput.framework/TextInput";
@@ -487,7 +487,7 @@ static UIInterfaceOrientation FBScreenshotOrientation;
   FBWaitForIdleTimeout = 10.;
   FBAnimationCoolOffTimeout = 2.;
   // 50 should be enough for the majority of the cases. The performance is acceptable for values up to 100.
-  FBSetCustomParameterForElementSnapshot(FBSnapshotMaxDepthKey, @50);
+  FBSetCustomParameterForElementSnapshot(FBSnapshotMaxDepthKey, @15);
 #if !TARGET_OS_TV
   FBScreenshotOrientation = UIInterfaceOrientationUnknown;
 #endif

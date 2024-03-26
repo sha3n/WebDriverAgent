@@ -19,14 +19,14 @@ const SIM_STARTUP_TIMEOUT_MS = MOCHA_TIMEOUT_MS;
 chai.should();
 chai.use(chaiAsPromised);
 
-let testUrl = 'http://localhost:8100/tree';
+let testUrl = 'http://localhost:11100/tree';
 
 function getStartOpts (device) {
   return {
     device,
     platformVersion: PLATFORM_VERSION,
     host: 'localhost',
-    port: 8100,
+    port: 11100,
     realDevice: false,
     showXcodeLog: true,
     wdaLaunchTimeout: 60 * 3 * 1000,

@@ -59,6 +59,10 @@ id<FBResponsePayload> FBResponseWithStatus(FBCommandStatus *status);
  */
 NSDictionary *FBDictionaryResponseWithElement(XCUIElement *element, BOOL compact);
 
+id<FBResponsePayload> FBResponseWithPlainAndStatus(NSString *plain, FBCommandStatus *status);
+
+id<FBResponsePayload> FBResponseWithPlain(NSString *plain);
+
 
 /**
  Protocol for objects that can dispatch some kind of a payload for given 'response'
